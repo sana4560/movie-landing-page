@@ -6,21 +6,21 @@ const MovieSlider = dynamic(() => import("./components/Slider/MovieSlider"), { s
 const CardSlider = dynamic(() => import("./components/CardSlider/CardSlider"), { ssr: false });
 const MostWatched = dynamic(() => import("./components/MostWatched/MostWatched"), { ssr: false });
 const TrendingMovies = dynamic(() => import("./components/TrendingMovies/TrendingMovies"), { ssr: false });
-const About= dynamic(()=> import("./components/About/About"), { ssr: false })
-const FAQ= dynamic(()=> import("./components/FAQ/Faq"), { ssr: false })
-
+const About = dynamic(() => import("./components/About/About"), { ssr: false });
+const FAQ = dynamic(() => import("./components/FAQ/Faq"), { ssr: false });
+import Header from './components/Header/Header';
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-       
+      <Header />
         <MovieSlider />
         <CardSlider />
         <TrendingMovies />
-        <MostWatched/>
-        <About/>
-       <FAQ/>
-       <Footer/>
+        <MostWatched />
+        <About />
+        <FAQ />
+        <Footer />
       </main>
     </div>
   );

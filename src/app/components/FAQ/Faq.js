@@ -13,7 +13,26 @@ import {
 import { Add as AddIcon, Remove as RemoveIcon } from '@mui/icons-material';
 
 // Create a default theme
-const theme = createTheme();
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Roboto, Arial, sans-serif', // Ensure consistent font style
+    body1: {
+      fontSize: '16px',
+      lineHeight: '1.6',
+    },
+    body2: {
+      fontSize: '14px',
+    },
+    h2: {
+      fontSize: '24px', // Adjusted for better readability
+      fontWeight: 600,  // Slightly bold
+    },
+    h3: {
+      fontSize: '22px', // Adjust heading size to fit within the FAQ layout
+      fontWeight: 500,
+    },
+  },
+});
 
 const FAQ = () => {
   const [expanded, setExpanded] = useState(null);
@@ -53,104 +72,89 @@ const FAQ = () => {
 
   return (
     <Box sx={{
-      marginBottom:"40px",
-      display:"flex",
-      justifyContent:"center",
-    
+      marginBottom: "40px",
+      display: "flex",
+      justifyContent: "center",
       background: 'transparent'
     }}>
-        <Box
-         sx={{
-            maxWidth:"1280px",
-            width:"100%",
-            padding: isMobile ? '10px' : '0' // Added responsive padding
+      <Box sx={{
+        maxWidth: "1280px",
+        width: "100%",
+        padding: isMobile ? '10px' : '0' // Added responsive padding
+      }}>
+
+        <Typography 
+          variant="h2" 
+          sx={{
+            color: 'orange',
+           
+            marginBottom: '2rem',
+            fontSize: "20px",
+            textAlign: 'left' // Centered header for better alignment
           }}
         >
+          Frequently Asked Questions
+        </Typography>
 
-       
-      <Typography 
-        variant="h2" 
-        sx={{
-          color: 'orange',
-          fontWeight: 'bold',
-      
-          marginBottom: '2rem',
-          fontSize:"18px"
-        }}
-      >
-        Frequently Asked Questions
-      </Typography>
-
-      <Box sx={{ 
-        
-        margin: '0 auto',
-        background: 'transparent'
-      }}>
-        {faqItems.map((item) => (
-          <Accordion 
-            key={item.id}
-            expanded={expanded === item.id}
-            onChange={handleChange(item.id)}
-            sx={{
-              marginBottom: '1rem',
-              borderRadius: '16px 16px',
-              border: '1px solid grey',
-              boxShadow: 'none',
-              background: 'transparent',
-              borderTopLeftRadius: '16px !important',
-                borderTopRightRadius: '16px !important',
-                borderBottomLeftRadius:"16px !important",
-                borderBottomRightRadius:"16px !important",
-              '&:before': {
-                display: 'none',
-                borderRadius: '16px !important',
-               
-              },
-              '&.Mui-expanded': {
-                margin: '16px 0px',
-                borderRadius: '16px !important',
-               
-                 
-
-              },
-            }}
-          >
-            <AccordionSummary
-              expandIcon={expanded === item.id ? 
-                <RemoveIcon sx={{ color: 'grey' }} /> : 
-                <AddIcon sx={{ color: 'grey' }} />
-              }
+        <Box sx={{ 
+          margin: '0 auto',
+          background: 'transparent'
+        }}>
+          {faqItems.map((item) => (
+            <Accordion 
+              key={item.id}
+              expanded={expanded === item.id}
+              onChange={handleChange(item.id)}
               sx={{
+                marginBottom: '1rem',
+                borderRadius: '16px 16px',
+                border: '1px solid grey',
+                boxShadow: 'none',
                 background: 'transparent',
-                '& .MuiAccordionSummary-content': {
-                  margin: '12px 0'
-                }
+                '&:before': {
+                  display: 'none',
+                },
+                '&.Mui-expanded': {
+                  margin: '16px 0px',
+                },
               }}
             >
-              <Typography sx={{ 
-                fontWeight: '500', 
-                color:'white',
-                fontSize: '22px'
+              <AccordionSummary
+                expandIcon={expanded === item.id ? 
+                  <RemoveIcon sx={{ color: 'grey' }} /> : 
+                  <AddIcon sx={{ color: 'grey' }} />
+                }
+                sx={{
+                  background: 'transparent',
+                  '& .MuiAccordionSummary-content': {
+                    margin: '12px 0'
+                  }
+                }}
+              >
+                <Typography sx={{ 
+                  fontWeight: '500', 
+                  color: 'white',
+                  fontSize: '22px'
+                }}>
+                  {item.title}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={{ 
+                background: 'transparent',
+                padding: '0 16px '
               }}>
-                {item.title}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ 
-              background: 'transparent',
-              padding: '0 16px '
-            }}>
-              <Typography sx={{ 
-                color: 'white', 
-                fontSize:"18px",
-                lineHeight: '1.6',
-                marginBottom:"20px"
-              }}>
-                {item.content}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </Box>
+                <Typography sx={{ 
+                  color: 'white', 
+                  fontSize: "18px",
+                  lineHeight: '1.6',
+                  marginBottom: "20px"
+                }}>
+                  {item.content}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </Box>
       </Box>
     </Box>
   );

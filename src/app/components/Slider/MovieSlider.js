@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./MovieSlider.css";
+import Header from "../Header/Header"; // Importing the Header component
 
 const moviePosters = [
   "https://rukminim3.flixcart.com/image/850/1000/poster/q/r/v/posterskart-interstellar-movie-poster-pkis04-medium-original-imaebctvytcgcgcx.jpeg?q=90&crop=false",
@@ -22,6 +23,9 @@ export default function MovieSlider() {
 
   return (
     <div className="main-div">
+   
+      <Header />
+      
       <div className="slider-wrapper">
         <Image
           src="/assets/images/banner.svg"
@@ -34,37 +38,6 @@ export default function MovieSlider() {
           }}
         />
         
-        {/* Header with logo and sign-in button */}
-        <Box sx={{
-          maxWidth: '1280px',
-          width: '100%',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '20px 0px',
-          boxSizing: 'border-box'
-        }}>
-          <Image 
-            src="/assets/images/logo.svg" 
-            alt="Film Ghar Logo"
-            width={120}
-            height={50}
-          />
-          <Button 
-            variant="contained" 
-            color="error"
-            startIcon={<Image src="/assets/images/login.svg" width={16} height={16} alt="Sign In" />}
-            sx={{
-              borderRadius: '20px',
-              textTransform: 'none',
-              padding: '8px 16px'
-            }}
-          >
-            Sign In
-          </Button>
-        </Box>
-
         <Box className="slider-container">
           <Swiper
             spaceBetween={isMobile ? 0 : -70}
@@ -92,7 +65,18 @@ export default function MovieSlider() {
             {moviePosters.map((poster, index) => (
               <SwiperSlide key={index} className="swiper-slide-custom">
                 <Card className="poster-card">
-                  <CardMedia component="img" image={poster} alt={`Movie ${index + 1}`} />
+                  <CardMedia
+                    component="img"
+                    image={poster}
+                    alt={`Movie ${index + 1}`}
+                    sx={{
+                      objectFit: 'cover', // Ensures image covers the container
+                      height: "100%",     // Make sure the image covers the full height
+                      width: "100%",      // Make sure the image covers the full width
+                      top: 0,
+                      left: 0,
+                    }}
+                  />
                 </Card>
               </SwiperSlide>
             ))}

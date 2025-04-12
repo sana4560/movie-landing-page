@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Card, CardContent, CardMedia, Button, Typography, Box } from '@mui/material';
+import { Card, CardMedia, Button, Box } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import './CardMovie.css';
 
@@ -15,15 +15,18 @@ const CardMovie = ({ movie }) => {
                     backgroundImage: `url(${movie.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    height: '50px',
-                    color: 'white',
+                 
+                  height:'450px',
                     textTransform: 'none',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    overflow: 'hidden',
+                    borderRadius: '10px',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
                     '&:hover': {
                         backgroundImage: `url(${movie.image})`,
-                        opacity: 0.8,
+                        opacity: 0.9,
                     },
                     '&::before': {
                         content: '""',
@@ -32,24 +35,27 @@ const CardMovie = ({ movie }) => {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+                        backgroundColor: 'rgba(50, 50, 50, 0.4)',
                         zIndex: 1,
                     }
                 }}
                 href={movie.trailer} 
                 target="_blank"
             >
-                <Box sx={{ zIndex: 2 }} className="trailer-button"> Trailer <PlayArrowIcon/></Box> 
+                <Box sx={{ zIndex: 2 }} className="trailer-button">
+                    Trailer <PlayArrowIcon />
+                </Box>
             </Button>
             <CardMedia
                 component="img"
                 height="84%"
                 image={movie.image}
                 alt={movie.title}
-                sx={{ borderRadius: '10px' }} // Added border radius
+                sx={{ borderRadius: '10px' }}
             />
         </Card>
     );
 };
 
 export default CardMovie;
+

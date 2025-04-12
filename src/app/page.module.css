@@ -1,0 +1,25 @@
+.page {
+    display: flex;
+    flex-direction: column;  /* Stack the components vertically */
+    align-items: center;  /* Center the content horizontally */
+    justify-content: flex-start;  /* Align items to the top */
+    width: 100%;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;  /* Stack components vertically */
+    gap: 10px;  /* Adjust space between the components */
+    width: 100%;
+   
+  }
+  
+  .MovieSlider, .CardSlider, .TrendingMovies, .MostWatched, .About, .FAQ, .Footer {
+    width: 100%;
+  }
+  .MovieSlider {
+    z-index: -1;
+  }
+  .CardSlider{
+    z-index: 2;
+  }

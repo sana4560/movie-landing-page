@@ -37,20 +37,23 @@ const About = () => {
           {features.map((feature, index) => (
             <Grid item key={index} xs={12} sm={6} md={3}>
               <Card className={styles.card}>
-                <CardContent>
-                  <img 
-                    src={feature.icon} 
-                    alt={feature.title}
-                    className={`${styles.icon} ${index === 0 ? styles.firstIcon : ''}`}
-                  />
-                  <Typography variant="h5" component="h3" className={styles.title}>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body1" className={styles.description}>
-                    {feature.description}
-                  </Typography>
-                </CardContent>
-              </Card>
+  <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box className={styles.iconWrapper}>
+      <img 
+        src={feature.icon} 
+        alt={feature.title}
+        className={styles.icon}
+      />
+    </Box>
+    <Typography variant="h5" component="h3" className={styles.title}>
+      {feature.title}
+    </Typography>
+    <Typography variant="body1" className={styles.description}>
+      {feature.description}
+    </Typography>
+  </CardContent>
+</Card>
+
             </Grid>
           ))}
         </Grid>

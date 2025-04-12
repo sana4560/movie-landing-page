@@ -33,19 +33,22 @@ const TrendingMovies = () => {
             });
     }, []);
 
-    const moviesPerPage = 6;
+    const moviesPerPage = 4;
 
     const displayedMovies = useMemo(() => {
         return movies.slice(count, count + moviesPerPage);
     }, [movies, count]);
 
     const handlePrevClick = () => {
-        setCount(prev => Math.max(0, prev - 1));
+        setCount(prev => Math.max(0, prev - moviesPerPage));
     };
-
+    
     const handleNextClick = () => {
-        setCount(prev => prev + 1);
+        if (count + moviesPerPage < movies.length) {
+            setCount(prev => prev + moviesPerPage);
+        }
     };
+    
 
     // Animation variants
     const containerVariants = {

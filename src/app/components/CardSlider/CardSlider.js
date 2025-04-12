@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { IconButton } from '@mui/material';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import './CardSlider.css';  
+
 import CardMovie from '../Card/CardMovie'; 
 import { motion } from 'framer-motion';
 
@@ -34,7 +34,8 @@ const CardSlider = () => {
     }, []);
 
     // Movies per page limit
-    const moviesPerPage = 6;
+ const moviesPerPage = 4;
+
 
     // Memoized value for displayed movies
     const displayedMovies = useMemo(() => {

@@ -1,28 +1,44 @@
 /* Updated MovieSlider.css (responsive) */
-.main-div{
+.main-div {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  z-index:0;
+
 }
+
+
 .slider-wrapper {
   position: relative;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px; /* Remove any margin at the bottom */
+  padding-bottom:50px; /* Adjust padding if needed */
+  top:90px;
+
+
+
 }
 
 .slider-container {
-  max-width: 1380px;
-  width: 100%;
+  width: 100vw;
+  max-width: none; /* Remove the fixed 1380px limit */
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  padding-bottom: 50px; /* Added space for pagination */
-}
+  box-sizing: border-box
+  ;
+  padding-bottom: 50px; /* Space for pagination */
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+;
 
+}
 /* Navigation buttons */
 .swiper-button-next,
 .swiper-button-prev {
@@ -83,60 +99,53 @@ align-items: center;
   justify-content: center;
   align-items: center;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  height: 480px;
-  z-index: 1;
-  margin-bottom: 14rem;
+  height: 600px; /* Increased height for grey cards */
+  width: 95%; /* Increased width for grey cards */
+
+  margin-bottom: 1rem;
 }
 
 .swiper-slide-active {
   z-index: 10 !important;
 }
 
+/* Active (blue) slide */
+.swiper-slide-custom.swiper-slide-active {
+  transform: scale(1.6); /* Increased scale for active card */
+ 
+/* Blue to identify active center card */
+}
+
+/* Poster card styling */
+.poster-card {
+  width: 80% !important;
+  height: 320px !important;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+}
+
+/* Active Poster Card */
 .swiper-slide-active .poster-card {
-  width: 100% !important;
-  height: 380px !important;
+  width: 95% !important;
+  height: 310px !important;
   transform: scale(1.2);
-  border-radius: 29px !important;
+  border-radius: 10px !important;
+
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Mobile - single slide */
-@media (max-width: 600px) {
-  .swiper-slide-active .poster-card {
-    transform: scale(1);
-    height: 55vh !important;
-  }
-  
-  .swiper-slide-custom {
-    height: 55vh;
-    padding: 0 10px;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: none !important;
-  }
-}
-
-/* Tablet - two slides */
-@media (min-width: 601px) and (max-width: 960px) {
-  .swiper-slide-active .poster-card {
-    height: 45vh !important;
-  }
-  
-  .swiper-slide-custom:not(.swiper-slide-active) .poster-card {
-    height: 35vh !important;
-  }
-}
-
-/* Side Slides - No border radius */
+/* Side Slides (grey) - No border radius */
 .swiper-slide-custom:not(.swiper-slide-active) {
   z-index: 0;
+ 
 }
 
 .swiper-slide-custom:not(.swiper-slide-active) .poster-card {
-  width: 100% !important;
-  height: 280px !important;
+  width: 95% !important; /* Increased width for side cards */
+  height: 450px !important; /* Increased height for side cards */
   filter: brightness(0.8);
   opacity: 0.9;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -154,17 +163,21 @@ align-items: center;
   transform-origin: left center;
 }
 
-/* Poster Card */
-.poster-card {
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  will-change: transform;
-  backface-visibility: hidden;
-  border-radius: 0;
+/* Mobile - single slide */
+@media (max-width: 600px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
 }
 
-.poster-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Tablet - two slides */
+@media (min-width: 601px) and (max-width: 960px) {
+  .swiper-slide-active .poster-card {
+    height: 50vh !important;
+  }
+  
+  .swiper-slide-custom:not(.swiper-slide-active) .poster-card {
+    height: 40vh !important;
+  }
 }
