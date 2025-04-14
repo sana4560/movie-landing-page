@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Landing Page
+
+A modern movie landing page built with Next.js and Material-UI.
+
+## Theme System
+
+This project uses a custom theme system built on top of Material-UI's theming capabilities. The theme provides consistent styling across the entire application, with special attention to heading colors and typography.
+
+### Theme Structure
+
+The theme is defined in `src/app/theme.js` and includes:
+
+- **Colors**: Primary, secondary, background, text, and heading colors
+- **Typography**: Consistent font sizes, weights, and line heights for all text elements
+- **Components**: Custom styling for common components like buttons and cards
+
+### Using the Theme
+
+The theme is applied globally through the `ThemeProvider` component in `src/app/layout.js`. All components have access to the theme through the `useTheme` hook:
+
+```jsx
+import { useTheme } from '@mui/material/styles';
+
+function MyComponent() {
+  const theme = useTheme();
+  
+  return (
+    <div style={{ color: theme.palette.primary.main }}>
+      This text uses the primary color from the theme
+    </div>
+  );
+}
+```
+
+### Section Headings
+
+For consistent section headings across the application, use the `SectionHeading` component:
+
+```jsx
+import SectionHeading from '../common/SectionHeading';
+
+function MySection() {
+  return (
+    <section>
+      <SectionHeading 
+        title="Section Title" 
+        subtitle="Optional subtitle text"
+      />
+      {/* Section content */}
+    </section>
+  );
+}
+```
+
+### CSS Variables
+
+The theme also defines CSS variables that can be used in CSS files:
+
+- `--heading-primary`: Primary heading color
+- `--heading-secondary`: Secondary heading color
+- `--text-primary`: Primary text color
+- `--text-secondary`: Secondary text color
+- `--background-color`: Background color
+
+Example usage in CSS:
+
+```css
+.my-heading {
+  color: var(--heading-primary, #1a237e);
+}
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/theme.js`: Theme configuration
+- `src/app/components/ThemeProvider.js`: Theme provider component
+- `src/app/components/common/SectionHeading.js`: Reusable section heading component
+- `src/app/components/`: All application components

@@ -28,9 +28,33 @@ const Footer = () => {
       <Box sx={{ maxWidth: "1280px", width: "100%", color: "white" }}>
         {/* App Store Badges - Centered Top */}
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
-          <Stack direction="row" spacing={2}>
-            <Box component="img" src="/assets/images/googleplay.svg" alt="Get it on Google Play" sx={{ height: 40 }} />
-            <Box component="img" src="/assets/images/appstore.svg" alt="Download on the App Store" sx={{ height: 40 }} />
+          <Stack direction="row" spacing={3}>
+            <Box 
+              component="img" 
+              src="/assets/images/googleplay.svg" 
+              alt="Get it on Google Play" 
+              sx={{ 
+                height: { xs: 40, sm: 45, md: 50 },
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
+              }} 
+            />
+            <Box 
+              component="img" 
+              src="/assets/images/appstore.svg" 
+              alt="Download on the App Store" 
+              sx={{ 
+                height: { xs: 40, sm: 45, md: 50 },
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                }
+              }} 
+            />
           </Stack>
         </Box>
 
