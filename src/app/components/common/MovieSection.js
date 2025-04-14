@@ -50,8 +50,8 @@ const MovieSection = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       sx={{
-        padding: '0.125rem 0',
-        paddingTop: '2rem',
+        padding: { xs: '0.25rem 0', sm: '0.125rem 0' },
+        paddingTop: { xs: '0.25rem', sm: '0.5rem', md: '1rem' },
         margin: '0',
         width: '100%',
         maxWidth: '100%',
@@ -68,7 +68,7 @@ const MovieSection = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '0.25rem',
+          marginBottom: { xs: '0.25rem', sm: '0.5rem' },
           padding: '0',
           paddingRight: '0.125rem'
         }}
@@ -77,60 +77,37 @@ const MovieSection = ({
           variant="h5"
           sx={{
             color: 'orange',
-            fontSize: '1.5rem',
+            fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' },
             fontWeight: 600,
-            paddingLeft: '0.125rem',
-            '@media (max-width: 600px)': {
-              fontSize: '1.2rem',
-            },
-            '@media (max-width: 425px)': {
-              fontSize: '1rem',
-            },
+            paddingLeft: { xs: '0.5rem', sm: '1rem', md: '2rem' },
             '@media (max-width: 350px)': {
-              fontSize: '0.9rem',
+              fontSize: '1rem',
+              paddingLeft: '0.25rem',
             }
           }}
         >
           {title}
         </Typography>
         
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ display: 'flex', gap: { xs: 0.5, sm: 1 } }}>
           <IconButton
             onClick={onPrevClick}
             disabled={!canPrev}
             sx={{
               backgroundColor: 'orange',
               color: 'white',
+              width: { xs: '28px', sm: '32px', md: '40px' },
+              height: { xs: '28px', sm: '32px', md: '40px' },
               '&:hover': {
                 backgroundColor: '#ff8c00'
               },
               '&.Mui-disabled': {
                 backgroundColor: theme.palette.action.disabledBackground
-              },
-              '@media (max-width: 600px)': {
-                width: '30px',
-                height: '30px',
-              },
-              '@media (max-width: 425px)': {
-                width: '25px',
-                height: '25px',
-              },
-              '@media (max-width: 350px)': {
-                width: '20px',
-                height: '20px',
               }
             }}
           >
             <ArrowLeftIcon sx={{
-              '@media (max-width: 600px)': {
-                fontSize: '1.2rem',
-              },
-              '@media (max-width: 425px)': {
-                fontSize: '1rem',
-              },
-              '@media (max-width: 350px)': {
-                fontSize: '0.9rem',
-              }
+              fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' }
             }} />
           </IconButton>
           
@@ -140,36 +117,18 @@ const MovieSection = ({
             sx={{
               backgroundColor: 'orange',
               color: 'white',
+              width: { xs: '28px', sm: '32px', md: '40px' },
+              height: { xs: '28px', sm: '32px', md: '40px' },
               '&:hover': {
                 backgroundColor: '#ff8c00'
               },
               '&.Mui-disabled': {
                 backgroundColor: theme.palette.action.disabledBackground
-              },
-              '@media (max-width: 600px)': {
-                width: '30px',
-                height: '30px',
-              },
-              '@media (max-width: 425px)': {
-                width: '25px',
-                height: '25px',
-              },
-              '@media (max-width: 350px)': {
-                width: '20px',
-                height: '20px',
               }
             }}
           >
             <ArrowRightIcon sx={{
-              '@media (max-width: 600px)': {
-                fontSize: '1.2rem',
-              },
-              '@media (max-width: 425px)': {
-                fontSize: '1rem',
-              },
-              '@media (max-width: 350px)': {
-                fontSize: '0.9rem',
-              }
+              fontSize: { xs: '1rem', sm: '1.2rem', md: '1.5rem' }
             }} />
           </IconButton>
         </Box>
@@ -178,30 +137,18 @@ const MovieSection = ({
       <Box
         sx={{
           display: 'flex',
-          gap: '1.5rem',
+          gap: { xs: '0.75rem', sm: '1rem', md: '1.5rem' },
           overflowX: 'auto',
-          padding: '0.5rem 0',
-          paddingLeft: '0.125rem',
+          padding: { xs: '0.25rem 0', sm: '0.5rem 0' },
+          paddingLeft: { xs: '0.5rem', sm: '1rem' },
           '&::-webkit-scrollbar': {
             display: 'none'
           },
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
           '& > *': {
-            marginTop: '0.5rem',
-            marginBottom: '0.5rem',
-            '@media (max-width: 600px)': {
-              marginTop: '0.4rem',
-              marginBottom: '0.4rem',
-            },
-            '@media (max-width: 425px)': {
-              marginTop: '0.3rem',
-              marginBottom: '0.3rem',
-            },
-            '@media (max-width: 350px)': {
-              marginTop: '0.2rem',
-              marginBottom: '0.2rem',
-            }
+            marginTop: { xs: '0.25rem', sm: '0.5rem' },
+            marginBottom: { xs: '0.25rem', sm: '0.5rem' }
           }
         }}
       >
