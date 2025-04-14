@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Box, Button, IconButton, useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText, Container } from '@mui/material';
+import { Box, Button as MuiButton, IconButton, useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText, Container } from '@mui/material';
 import Image from "next/image";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import Button from './Button';
 
 const Header = ({ 
   logo = "/assets/images/logo.svg",
@@ -117,7 +116,7 @@ const Header = ({
               }}
             >
               {navItems.map((item) => (
-                <Button
+                <MuiButton
                   key={item.label}
                   variant="text"
                   color="inherit"
@@ -130,7 +129,7 @@ const Header = ({
                   }}
                 >
                   {item.label}
-                </Button>
+                </MuiButton>
               ))}
             </Box>
           )}
@@ -146,7 +145,7 @@ const Header = ({
               <MenuIcon />
             </IconButton>
           ) : (
-            <Button
+            <MuiButton
               variant="contained"
               color="error"
               startIcon={
@@ -160,7 +159,7 @@ const Header = ({
               animate
             >
               Sign In
-            </Button>
+            </MuiButton>
           )}
         </Box>
       </Container>
@@ -198,7 +197,7 @@ const Header = ({
           ))}
           
           <ListItem sx={{ mt: 2 }}>
-            <Button
+            <MuiButton
               variant="contained"
               color="error"
               fullWidth
@@ -212,7 +211,7 @@ const Header = ({
               }
             >
               Sign In
-            </Button>
+            </MuiButton>
           </ListItem>
         </List>
       </Drawer>
