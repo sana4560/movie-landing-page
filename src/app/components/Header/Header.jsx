@@ -11,7 +11,7 @@ export default function Header() {
         top: 0,
         left: 0,
         zIndex: 1000,
-        backgroundColor: "black", // Set background to black
+       
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
